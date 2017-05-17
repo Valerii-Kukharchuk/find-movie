@@ -24,7 +24,7 @@ export class FilmCardsComponent implements OnInit {
       .subscribe(
         searchText => {
           this.films = [];
-          this.service.getFilms(startSearchText).subscribe(
+          this.service.getFilms(searchText).subscribe(
             f => this.films.push(f)
           );
         }

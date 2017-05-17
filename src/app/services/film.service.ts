@@ -20,11 +20,6 @@ export class FilmService {
 
   constructor(private http: Http) { }
 
-  // private extractData(res: Response) {
-  //   let body = res.json();
-  //   return body.Search || [];
-  // }
-
   getFilms(searchText: string): Observable<Film> {
     return this.http.get(this.url+searchText)
       .map(res => res.json())
