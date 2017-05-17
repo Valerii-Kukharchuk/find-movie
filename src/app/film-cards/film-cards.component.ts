@@ -15,9 +15,20 @@ export class FilmCardsComponent implements OnInit {
   private films: Film[] = [];
 
   constructor(private service: FilmService) {
-    this.service.getFilms().subscribe(
+    let startSearchText: string = "star";
+    this.service.getFilms(startSearchText).subscribe(
       f => this.films.push(f)
     );
+
+    this.service.searchEvent
+      .subscribe(
+        searchText => {
+          this.films = [];
+          this.service.getFilms(startSearchText).subscribe(
+            f => this.films.push(f)
+          );
+        }
+      );
   }
 
   ngOnInit() {    

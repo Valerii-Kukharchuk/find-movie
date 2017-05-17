@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 
 import { Http, Response } from '@angular/http';
 import {Observable} from 'rxjs/Rx';
@@ -14,28 +14,22 @@ export class Film {
 @Injectable()
 export class FilmService {
 
-  url: string = "http://www.omdbapi.com/?page=1&s=star";
+  url: string = "http://www.omdbapi.com/?page=1&s=";
+
+  searchEvent: EventEmitter<any> = new EventEmitter();
 
   constructor(private http: Http) { }
 
-  private extractData(res: Response) {
-    let body = res.json();
-    return body.Search || [];
-  }
+  // private extractData(res: Response) {
+  //   let body = res.json();
+  //   return body.Search || [];
+  // }
 
-  getFilms(): Observable<Film> {
-    return this.http.get(this.url)
-      //.flatMap(this.extractData)
-      //.map(this.extractData)
+  getFilms(searchText: string): Observable<Film> {
+    return this.http.get(this.url+searchText)
       .map(res => res.json())
       .flatMap((res:{Search :Array<any>} ) => Observable.from(res.Search) )
       .map((f :{Title,Poster,Year}) => new Film(f.Title, f.Poster, f.Year));
-      
-     // .map(f => new Film(f.Title,f.Poster,f.Year));
-    //let films = arr.;
-    // let res: Film[] = [];
-    // arr.subscribe(f => res.push(new Film(f.Title,f.Poster,f.Year)));
-    // return res;
   }
 
 }
