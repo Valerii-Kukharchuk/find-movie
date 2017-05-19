@@ -1,6 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import {Observable} from 'rxjs/Rx';
+import { Subscription } from 'rxjs/Subscription';
 
 import { FilmService } from '../services/film.service';
 import { Film } from '../services/film.service';
@@ -13,13 +14,9 @@ import { Film } from '../services/film.service';
 })
 export class FilmCardsComponent implements OnInit {
   private films: Film[] = [];
+  private subscription: Subscription;
 
   constructor(private service: FilmService) {
-    let startSearchText: string = "star";
-    this.service.getFilms(startSearchText).subscribe(
-      f => this.films.push(f)
-    );
-
     this.service.searchEvent
       .subscribe(
         searchText => {
@@ -32,7 +29,10 @@ export class FilmCardsComponent implements OnInit {
   }
 
   ngOnInit() {    
-    //this.films = this.service.getFilms();
+    let startSearchText: string = "star";
+    this.service.getFilms(startSearchText).subscribe(
+      (film :Film) => this.films.push(film)
+    );
   }
 
 }
