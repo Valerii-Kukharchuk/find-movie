@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FilmService } from '../services/film.service';
+import { SearchFiledService } from '../services/search-filed.service';
 
 @Component({
   selector: 'film-search', 
@@ -10,10 +10,10 @@ export class FilmSearchComponent {
 
   searchText: string;
 
-  constructor(private service: FilmService) { }
+  constructor(private searchService: SearchFiledService) { }
 
   onSearch() {
-    this.service.searchEvent.emit(this.searchText);
+    this.searchService.sendSearchText(this.searchText);
   }
 
 }

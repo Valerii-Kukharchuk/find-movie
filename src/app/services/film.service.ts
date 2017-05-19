@@ -16,7 +16,7 @@ export class FilmService {
 
   url: string = "http://www.omdbapi.com/?page=1&s=";
 
-  searchEvent: EventEmitter<any> = new EventEmitter();
+  //searchEvent: EventEmitter<any> = new EventEmitter();
 
   constructor(private http: Http) { }
 

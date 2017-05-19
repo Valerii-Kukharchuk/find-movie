@@ -14,6 +14,7 @@ import { FilmCardsComponent } from './film-cards/film-cards.component';
 import { FilmCardComponent } from './film-card/film-card.component';
 
 import { FilmService } from './services/film.service';
+import { SearchFiledService } from './services/search-filed.service';
 import { FilmSearchComponent } from './film-search/film-search.component';
 
 @NgModule({
@@ -34,7 +35,7 @@ import { FilmSearchComponent } from './film-search/film-search.component';
     MdGridListModule,
     MdInputModule
   ],
-  providers: [FilmService],
+  providers: [FilmService,SearchFiledService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
