@@ -19,19 +19,7 @@ export class FilmCardsComponent implements OnInit {
 
   constructor(
      private filmsService: FilmService,
-     private searchService: SearchFiledService) 
-    {
-    
-    // this.filmsService.searchEvent
-    //   .subscribe(
-    //     searchText => {
-    //       this.films = [];
-    //       this.filmsService.getFilms(searchText).subscribe(
-    //         f => this.films.push(f)
-    //       );
-    //     }
-    //   );
-  }
+     private searchService: SearchFiledService) {}
 
   getFilms(searchText :string) {
     this.films = [];
@@ -41,7 +29,7 @@ export class FilmCardsComponent implements OnInit {
   }
 
   ngOnInit() {    
-    let startSearchText: string = "star";
+    let startSearchText: string = "lord";
     this.getFilms(startSearchText);
 
     this.subscription = this.searchService

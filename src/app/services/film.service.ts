@@ -13,10 +13,7 @@ export class Film {
 
 @Injectable()
 export class FilmService {
-
-  url: string = "http://www.omdbapi.com/?page=1&s=";
-
-  //searchEvent: EventEmitter<any> = new EventEmitter();
+  url: string = "http://www.omdbapi.com/?i=tt3896198&apikey=520bbe17&s=";
 
   constructor(private http: Http) { }
 
@@ -26,5 +23,4 @@ export class FilmService {
       .flatMap((res:{Search :Array<any>} ) => Observable.from(res.Search) )
       .map((f :{Title,Poster,Year}) => new Film(f.Title, f.Poster, f.Year));
   }
-
 }
