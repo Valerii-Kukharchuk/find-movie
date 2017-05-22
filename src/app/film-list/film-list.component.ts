@@ -9,11 +9,11 @@ import { SearchFiledService } from '../services/search-filed.service';
 
 
 @Component({
-  selector: 'film-cards',
-  templateUrl: './film-cards.component.html',
-  styleUrls: ['./film-cards.component.css']
+  selector: 'film-list',
+  templateUrl: './film-list.component.html',
+  styleUrls: ['./film-list.component.css']
 })
-export class FilmCardsComponent implements OnInit {
+export class FilmListComponent implements OnInit {
   private films: Film[] = [];
   private subscription: Subscription;
 

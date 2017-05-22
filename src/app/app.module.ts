@@ -10,7 +10,7 @@ import {MdCardModule, MdGridListModule, MdInputModule} from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { FilmCardsComponent } from './film-cards/film-cards.component';
+import { FilmListComponent } from './film-list/film-list.component';
 import { FilmCardComponent } from './film-card/film-card.component';
 
 import { FilmService } from './services/film.service';
@@ -21,7 +21,7 @@ import { FilmSearchComponent } from './film-search/film-search.component';
   declarations: [
     AppComponent,
     HeaderComponent,
-    FilmCardsComponent,
+    FilmListComponent,
     FilmCardComponent,
     FilmSearchComponent
   ],
