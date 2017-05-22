@@ -5,7 +5,7 @@ import { Subscription } from 'rxjs/Subscription';
 
 import { FilmService } from '../services/film.service';
 import { Film } from '../services/film.service';
-import { SearchFiledService } from '../services/search-filed.service';
+import { SearchTextService } from '../services/search-text.service';
 
 
 @Component({
@@ -19,7 +19,7 @@ export class FilmListComponent implements OnInit {
 
   constructor(
      private filmsService: FilmService,
-     private searchService: SearchFiledService) {}
+     private searchService: SearchTextService) {}
 
   getFilms(searchText :string) {
     this.films = [];
