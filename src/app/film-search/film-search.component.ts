@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SearchTextService } from '../services/search-filed.service';
+import { SearchTextService } from '../services/search-text.service';
 
 @Component({
   selector: 'film-search', 
