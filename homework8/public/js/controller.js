@@ -2,46 +2,32 @@
     
 	var model = window.app.model;
     var Gallery = window.app.Gallery;
-    var gallery = null;
-            
-    /*function bindSave() {
-        gallery.saveDefer.then((item) => {
-            model.saveData(item);    
-        });
-    }*/
-    
-    function bindUpdate() {
-        gallery.eventHolder.on( gallery.updateEventName, (event, item) => {
-            model.updateData(item);
-        });
-    }
+    var gallery = null;            
 
     function bindUpdateGallery() {
-        gallery.eventHolder.on( gallery.changeEventName, (event, item) => {
-            updateGallery(item);
+        gallery.eventHolder.on( gallery.changeEventName, (event, searchText) => {
+            updateGallery(searchText);
         });
     }
 
     function updateGallery(searchText) {
-        model.getData(searchText).then((data) => {
-            gallery.updateGallery(data);
+        model.getData(searchText).then(serverResponse => {
+            gallery.updateGallery(serverResponse);
         });   
     }
     
     function bindEvents(){
-        //bindSave();  
-        bindUpdate();
         bindUpdateGallery();
     }
     
     function initGallery(data){
-        gallery = new Gallery(data);   
+        gallery = new Gallery(data.Search);   
     }
     
     function init() {
         let startText = "start";
-        model.getData(startText).then((data) => {
-            initGallery(data);
+        model.getData(startText).then(serverResponse => {
+            initGallery(serverResponse);
             bindEvents();
         });    
     }
