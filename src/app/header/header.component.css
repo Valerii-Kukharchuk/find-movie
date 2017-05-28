@@ -3,3 +3,26 @@
 .example-fill-remaining-space {
   flex: 1 1 auto;
 }
+
+.toolbar-button {
+		display: none;
+}
+
+#logo {
+  margin-left: 20px;
+}
+
+#logo a {
+  text-decoration: none;
+}
+
+@media screen and (max-width:1024px) {
+	.toolbar-button {
+		display: block;
+	}
+}
+
+film-search {
+  margin : 8px;
+  padding : 4px auto;
+}
