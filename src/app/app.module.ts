@@ -5,7 +5,8 @@ import { HttpModule } from '@angular/http';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
-import {MdToolbarModule, MdButtonModule, MdIconModule} from '@angular/material';
+import {MdToolbarModule, MdButtonModule, MdIconModule,
+  MdSidenavModule} from '@angular/material';
 import {MdCardModule, MdGridListModule, MdInputModule} from '@angular/material';
 
 import { AppComponent } from './app.component';
@@ -35,7 +36,8 @@ import { FilmSearchComponent } from './film-search/film-search.component';
     MdGridListModule,
     MdInputModule,
     MdButtonModule,
-    MdIconModule
+    MdIconModule,
+    MdSidenavModule
   ],
   providers: [FilmService,SearchTextService],
   bootstrap: [AppComponent]

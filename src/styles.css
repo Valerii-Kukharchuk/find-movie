@@ -2,12 +2,19 @@
 @import 'https://fonts.googleapis.com/icon?family=Material+Icons';
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
-/*html {
+html {
     height: 100%;
-}*/
+}
 body {
     margin: 0;
-    /*font-family: Roboto, sans-serif;
+    font-family: Roboto, sans-serif;
     height:100%;
-    display: flex;*/
+    display: flex;
+}
+.loading {
+    height: 100px;
+    width: 130px;
+}
+.mat-toolbar-row {
+    justify-content: space-between;
 }
