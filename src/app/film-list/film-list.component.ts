@@ -25,10 +25,8 @@ export class FilmListComponent implements OnInit {
      private filmsService: FilmService,
      private searchService: SearchTextService) {}
 
-  addFilms(searchText :string) {
-    this.description = "You are searching now...";
-    this.films = [];
-    this.filmsService.getFilms(searchText).subscribe(
+  addFilms() {
+    this.filmsService.getFilms(this.searchText, this.page).subscribe(
       (film :Film) => this.films.push(film)
     );    
   }
@@ -57,6 +55,7 @@ export class FilmListComponent implements OnInit {
 
   addNextFilmsPage() {
     this.page++;
+    this.addFilms();
   }
 
 }
