@@ -32,10 +32,15 @@ export class FilmListComponent implements OnInit {
   }
 
   newSearchingFilm() {
-    this.description = "You are searching now...";
+    this.description = "Searching ...";
     this.films = [];
     this.filmsService.getFilms(this.searchText).subscribe(
-      (film :Film) => this.films.push(film)
+      (film :Film) => this.films.push(film),
+      (error: any) => this.description = "Something went wrong. try again",
+      () => {
+        if( !this.films.length ) { 
+          this.description = "No found result";
+        } }
     );    
   }
 
