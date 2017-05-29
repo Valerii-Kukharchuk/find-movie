@@ -1,5 +1,15 @@
 
 
+<form>
+  <md-select placeholder="View" name="view">
+    <md-option [value]="poster-right">Poster Card View</md-option>
+    <md-option [value]="poster-up">Backdrop Card View</md-option>
+    <!--<md-option *ngFor="let food of foods" [value]="food.value">
+      {{food.viewValue}}
+    </md-option>-->
+  </md-select>
+</form>
+
 <h3 >{{description}}</h3>
 
 <md-grid-list cols="2" rowHeight="650px">
