@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+
 import { Film } from '../services/film.service';
 
 @Component({
@@ -7,6 +8,18 @@ import { Film } from '../services/film.service';
   styleUrls: ['./film-card.component.css']
 })
 export class FilmCardComponent {
+
   @Input() film: Film;
+
+  @Input() view: string;
+
+  isPosterUp():boolean {
+    return !(this.view == 'poster-up');
+  }
+
+  isPosterRight():boolean {
+    return !(this.view == 'poster-right');
+  }
+
 }
 

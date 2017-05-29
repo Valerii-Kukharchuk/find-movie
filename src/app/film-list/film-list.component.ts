@@ -1,5 +1,8 @@
 
 import { Component, OnInit } from '@angular/core';
+
+import {MdSelectChange} from '@angular/material';
+
 import {Observable} from 'rxjs/Rx';
 import { Subscription } from 'rxjs/Subscription';
 
@@ -21,6 +24,13 @@ export class FilmListComponent implements OnInit {
   private searchText :string;
   private page :number;
 
+  views = [
+    {value: 'poster-right', viewValue: 'Poster Card View'},
+    {value: 'poster-up', viewValue: 'Backdrop Card View'}
+  ];
+
+  selectedViewValue :string = "poster-up";
+
   constructor(
      private filmsService: FilmService,
      private searchService: SearchTextService) {}
@@ -36,10 +46,12 @@ export class FilmListComponent implements OnInit {
     this.films = [];
     this.filmsService.getFilms(this.searchText).subscribe(
       (film :Film) => this.films.push(film),
-      (error: any) => this.description = "Something went wrong. try again",
+      (error: any) => this.description = "No found result",
       () => {
         if( !this.films.length ) { 
           this.description = "No found result";
+        } else {
+          this.description = "Searching result:";
         } }
     );    
   }

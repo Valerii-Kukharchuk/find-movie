@@ -1,21 +1,18 @@
 
 
 <form>
-  <md-select placeholder="View" name="view">
-    <md-option [value]="poster-right">Poster Card View</md-option>
-    <md-option [value]="poster-up">Backdrop Card View</md-option>
-    <!--<md-option *ngFor="let food of foods" [value]="food.value">
-      {{food.viewValue}}
-    </md-option>-->
+  <md-select #filmCardView placeholder="View" 
+    name="view" [(ngModel)]="selectedViewValue">
+    <md-option *ngFor="let view of views" [value]="view.value">
+      {{view.viewValue}}
+    </md-option>
   </md-select>
 </form>
 
-<h3 >{{description}}</h3>
+<h4>{{description}}</h4>
 
-<md-grid-list cols="2" rowHeight="650px">
-  <md-grid-tile *ngFor="let film of films">
-    <film-card class="film-card" [film]="film"></film-card>
-  </md-grid-tile>
-</md-grid-list>
+<div class="row">
+  <film-card *ngFor="let film of films" [film]="film" [view]="selectedViewValue"></film-card>
+</div>
 
 <button (click)="addNextFilmsPage()" md-raised-button>Add more</button>
