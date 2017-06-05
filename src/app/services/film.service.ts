@@ -40,10 +40,13 @@ export class FilmService {
     return res;
   }
 
-  getFilms(searchText: string, page: number = 1): Observable<Film> {
+  getSearchFilmResult(searchText: string, page: number = 1): Observable<SearchFilmResult> {
     return this.http.get(this.url+searchText+'&page='+page)
       .map(res => res.json())
-      .flatMap((res:{Search :Array<any>} ) => Observable.from(res.Search) )
-      .map((f :{Title,Poster,Year}) => new Film(f.Title, f.Poster, f.Year));
+      .map( (arg :{Search, totalResults:number}) =>       
+        new SearchFilmResult(arg.totalResults,
+          arg.Search.map((f :{imdbID,Title,Poster,Year}) => 
+            new Film(f.imdbID,f.Title, f.Poster, f.Year)))
+      );
   }
 }
