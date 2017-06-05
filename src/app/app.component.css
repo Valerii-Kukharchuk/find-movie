@@ -56,3 +56,7 @@ md-sidenav {
 #logo a {
   text-decoration: none;
 }
+
+film-list {
+  margin-bottom: 50px;
+}
