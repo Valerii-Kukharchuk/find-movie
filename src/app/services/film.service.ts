@@ -8,12 +8,29 @@ import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/map';
 
 export class Film {
-  constructor(public title: string, public posterUrl: string, public year: number ) {}
+  static N_A: string = "N/A";  
+  constructor(
+    public id : string,
+    public title: string, 
+    public posterUrl: string, 
+    public year: number,
+    public genre: [string] = [Film.N_A],
+    public director: string = Film.N_A,
+    public plot: string = "",
+    public country: [string] = [Film.N_A] ) {}
+}
+
+export class SearchFilmResult {
+  constructor(
+      public totalResults :number, 
+      public films :[Film]) {}
 }
 
 @Injectable()
 export class FilmService {
-  url: string = "http://www.omdbapi.com/?i=tt3896198&apikey=520bbe17&s=";
+  apiKey: string = "520bbe17";
+
+  url: string = "http://www.omdbapi.com/?apikey=520bbe17&s=";
 
   constructor(private http: Http) { }
 
