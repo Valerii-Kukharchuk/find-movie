@@ -1,4 +1,4 @@
-import { EventEmitter, Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 
 import { Http, Response, URLSearchParams } from '@angular/http';
 import {Observable} from 'rxjs/Rx';
@@ -28,25 +28,36 @@ export class SearchFilmResult {
 
 @Injectable()
 export class FilmService {
-  apiKey: string = "520bbe17";
+  private paramSearchString :string = 's';
+  private paramPage :string = 'page';
+  private requestParams :URLSearchParams;  
 
-  url: string = "http://www.omdbapi.com/?apikey=520bbe17&s=";
+  url: string = "http://www.omdbapi.com";
 
-  constructor(private http: Http) { }
+  constructor(private http: Http) { 
+    this.init();
+  }
 
-  prepareRequest() : URLSearchParams {
-    let res = new URLSearchParams();
-
-    return res;
+  prepareRequest(searchText: string, page: number = 1) {
+    this.requestParams.set(this.paramSearchString, searchText);
+    this.requestParams.set(this.paramPage, page.toString());
   }
 
   getSearchFilmResult(searchText: string, page: number = 1): Observable<SearchFilmResult> {
-    return this.http.get(this.url+searchText+'&page='+page)
+    this.prepareRequest(searchText,page);
+    return this.http.get(this.url+ '/?' +this.requestParams.toString())
       .map(res => res.json())
       .map( (arg :{Search, totalResults:number}) =>       
         new SearchFilmResult(arg.totalResults,
           arg.Search.map((f :{imdbID,Title,Poster,Year}) => 
             new Film(f.imdbID,f.Title, f.Poster, f.Year)))
       );
+  }
+
+  private init() {
+    let apiKey: string = "520bbe17";
+    this.requestParams = new URLSearchParams(`apiKey=${apiKey}`);
+    this.requestParams.append(this.paramSearchString,'');
+    this.requestParams.append(this.paramPage,'1');
   }
 }
