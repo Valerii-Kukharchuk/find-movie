@@ -1,6 +1,6 @@
 
 
-<form>
+<form class="view-select">
   <md-select #filmCardView placeholder="View" 
     name="view" [(ngModel)]="selectedViewValue">
     <md-option *ngFor="let view of views" [value]="view.value">
