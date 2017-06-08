@@ -1,0 +1,10 @@
+
+
+<md-grid-list cols="2" rowHeight="650px">
+  <md-grid-tile *ngFor="let film of films">
+    <film-card class="film-card" [film]="film"></film-card>
+  </md-grid-tile>
+  <div [hidden]="films.length">
+    <h3 style="margin-left: 10px">No result found.</h3>
+  </div>
+</md-grid-list>

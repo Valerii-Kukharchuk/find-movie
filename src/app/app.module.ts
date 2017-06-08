@@ -6,7 +6,7 @@ import { HttpModule } from '@angular/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import {MdToolbarModule} from '@angular/material';
-import {MdCardModule, MdGridListModule} from '@angular/material';
+import {MdCardModule, MdGridListModule, MdInputModule} from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -14,13 +14,16 @@ import { FilmCardsComponent } from './film-cards/film-cards.component';
 import { FilmCardComponent } from './film-card/film-card.component';
 
 import { FilmService } from './services/film.service';
+import { SearchFiledService } from './services/search-filed.service';
+import { FilmSearchComponent } from './film-search/film-search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FilmCardsComponent,
-    FilmCardComponent
+    FilmCardComponent,
+    FilmSearchComponent
   ],
   imports: [
     BrowserModule,
@@ -29,9 +32,10 @@ import { FilmService } from './services/film.service';
     BrowserAnimationsModule,
     MdToolbarModule,
     MdCardModule,
-    MdGridListModule
+    MdGridListModule,
+    MdInputModule
   ],
-  providers: [FilmService],
+  providers: [FilmService,SearchFiledService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
