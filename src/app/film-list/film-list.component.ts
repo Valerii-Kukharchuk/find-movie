@@ -81,9 +81,23 @@ export class FilmListComponent implements OnInit  {
       });
   }
 
+  isAddFilmsButtonDisabled() {
+    return this.isPageOutOfBounds();
+  }
+
+  private isShownAddMoreProgressSpinner() :boolean {
+    return this.page > 1 && this.isAddingNewFilms;
+  }
+
+  private isPageOutOfBounds() : boolean {
+    return this.films.length && this.films.length >= this.totalResults;
+  }
+
   addNextFilmsPage() {
-    this.page++;
-    this.addFilms();
+    if(!this.isPageOutOfBounds()) {
+      this.page++;
+      this.addFilms();
+    }
   }
 
 }
