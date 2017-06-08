@@ -1,2 +1,5 @@
 
 
+input:focus {
+  min-width: 250px;
+}
