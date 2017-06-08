@@ -26,11 +26,11 @@ export class FilmListComponent implements OnInit  {
   private isAddingNewFilms: boolean = false;
 
   views = [
-    {value: 'poster-right', viewValue: 'Poster Card View'},
-    {value: 'poster-up', viewValue: 'Backdrop Card View'}
+    {value: FilmListViews.posterRight, viewValue: 'Poster Card View'},
+    {value: FilmListViews.posterUp, viewValue: 'Backdrop Card View'}
   ];
 
-  selectedViewValue :string = "poster-up";
+  selectedViewValue :string = FilmListViews.posterUp;
 
   constructor(
      private filmsService: FilmService,
@@ -62,7 +62,7 @@ export class FilmListComponent implements OnInit  {
         if( !this.films.length ) { 
           this.description = "No found result";
         } else {
-          this.description = "Searching result:";      
+          this.description = "Searching result:";
         } }
     );    
   }
