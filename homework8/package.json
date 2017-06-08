@@ -1,0 +1,11 @@
+{
+  "name": "SimpleJson",
+  "version": "1.0.0",
+  "author": "Eugene Kaliuzhnyi",
+  "description": "",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "3.3.x"
+  },
+  "license": "MIT"
+}
