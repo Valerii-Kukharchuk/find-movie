@@ -1,3 +1,36 @@
-<app-header></app-header>
+<md-toolbar>
+  <button (click)="sidenav.toggle()" class="toolbar-button" md-mini-fab><md-icon>menu</md-icon></button>
 
-<film-cards class="app-content"></film-cards>
+  <div id="logo">
+    <a href="/">{{title}}</a>
+  </div>
+
+  <div class="toolbar-button-row">
+    <a md-button
+      *ngFor="let topLink of links" href="#">
+      <md-icon>{{topLink.icon}}</md-icon> &nbsp; {{topLink.label}}
+    </a>
+  </div>
+
+  <span class="example-fill-remaining-space"></span>
+  <film-search></film-search>  
+</md-toolbar>
+
+<md-sidenav-container>
+  <md-sidenav #sidenav mode="over" class="app-sidenav">
+    <nav>
+      <a md-button
+        class="nav-link"
+        *ngFor="let link of links"
+        href="#">
+        <md-icon>{{link.icon}}</md-icon> &nbsp; {{link.label}}
+      </a>
+    </nav>
+  </md-sidenav>  
+</md-sidenav-container>
+
+<div class="container">
+  <film-list></film-list>
+</div>
+
+

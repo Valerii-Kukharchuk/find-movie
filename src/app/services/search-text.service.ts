@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { Subject } from 'rxjs/Subject';
 
 @Injectable()
-export class SearchFiledService {
+export class SearchTextService {
   private subject = new Subject<string>();
  
   sendSearchText(searchText: string) {

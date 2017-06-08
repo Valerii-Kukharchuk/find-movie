@@ -1,7 +1,14 @@
 
-<md-toolbar color="primary">
-  <span>FindMovie</span>
+<md-toolbar>
+  <button md-mini-fab class="toolbar-button"><md-icon>menu</md-icon></button>
+  <!--<span>FindMovie</span>-->
+
+  <div id="logo">
+    <a href="/">MovieInfo</a>
+  </div>
+
   <span class="example-fill-remaining-space"></span>
-  <film-search></film-search>
+  <film-search></film-search>  
+  <a md-raised-button routerLink=".">LOGIN</a>
 </md-toolbar>
 

@@ -1,0 +1,18 @@
+
+
+<form class="view-select">
+  <md-select #filmCardView placeholder="View" 
+    name="view" [(ngModel)]="selectedViewValue">
+    <md-option *ngFor="let view of views" [value]="view.value">
+      {{view.viewValue}}
+    </md-option>
+  </md-select>
+</form>
+
+<h4>{{description}}</h4>
+
+<div class="row">
+  <film-card *ngFor="let film of films" [film]="film" [view]="selectedViewValue"></film-card>
+</div>
+
+<button (click)="addNextFilmsPage()" md-raised-button>Add more</button>

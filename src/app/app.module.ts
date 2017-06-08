@@ -5,23 +5,24 @@ import { HttpModule } from '@angular/http';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
-import {MdToolbarModule} from '@angular/material';
+import {MdToolbarModule, MdButtonModule, MdIconModule,
+  MdSidenavModule, MdSelectModule} from '@angular/material';
 import {MdCardModule, MdGridListModule, MdInputModule} from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { FilmCardsComponent } from './film-cards/film-cards.component';
+import { FilmListComponent } from './film-list/film-list.component';
 import { FilmCardComponent } from './film-card/film-card.component';
 
 import { FilmService } from './services/film.service';
-import { SearchFiledService } from './services/search-filed.service';
+import { SearchTextService } from './services/search-text.service';
 import { FilmSearchComponent } from './film-search/film-search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    FilmCardsComponent,
+    FilmListComponent,
     FilmCardComponent,
     FilmSearchComponent
   ],
@@ -33,9 +34,13 @@ import { FilmSearchComponent } from './film-search/film-search.component';
     MdToolbarModule,
     MdCardModule,
     MdGridListModule,
-    MdInputModule
+    MdInputModule,
+    MdButtonModule,
+    MdIconModule,
+    MdSidenavModule,
+    MdSelectModule
   ],
-  providers: [FilmService,SearchFiledService],
+  providers: [FilmService,SearchTextService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

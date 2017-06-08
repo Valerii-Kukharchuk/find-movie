@@ -1,9 +1,25 @@
 
-<md-card height="600px">
-  <md-card-header>
-    <md-card-title>{{film.title}}</md-card-title>
-  </md-card-header>
-    <img md-card-image [src]="film.posterUrl">
-  <md-card-content>
-  </md-card-content>
-</md-card>
+
+    <div class="col s12 m6 l6" [hidden]="isPosterUp()">
+      <div class="card">
+        <div class="card-image">
+          <img [src]="getPosterUrl()">
+        </div>
+        <div class="card-content">
+          <span class="card-title">{{film.title}}</span>
+        </div>
+      </div>
+    </div>
+
+  <div class="col s12 m6 l6" [hidden]="isPosterRight()">
+    <div class="card horizontal">
+      <div class="card-image">
+        <img [src]="getPosterUrl()">
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <span class="card-title">{{film.title}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
