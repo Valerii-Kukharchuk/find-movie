@@ -1,13 +1,11 @@
 
 import { Component, OnInit } from '@angular/core';
 
-import {MdSelectChange} from '@angular/material';
-
 import {Observable} from 'rxjs/Rx';
 import { Subscription } from 'rxjs/Subscription';
 
-import { FilmService } from '../services/film.service';
-import { Film } from '../services/film.service';
+import { FilmListViews } from '../shared/filmsListViews';
+import { FilmService, Film, SearchFilmResult } from '../services/film.service';
 import { SearchTextService } from '../services/search-text.service';
 
 
