@@ -47,9 +47,10 @@ export class FilmService {
     this.prepareRequest(searchText,page);
     return this.http.get(this.url+ '/?' +this.requestParams.toString())
       .map(res => res.json())
-      .map( (arg :{Search, totalResults:number}) =>       
+      .filter((arg :{Response:string}) => arg.Response === "True" )
+      .map( (arg :{Search, totalResults:number} ) =>
         new SearchFilmResult(arg.totalResults,
-          arg.Search.map((f :{imdbID,Title,Poster,Year}) => 
+          arg.Search.map((f :{imdbID,Title,Poster,Year}) =>
             new Film(f.imdbID,f.Title, f.Poster, f.Year)))
       );
   }
