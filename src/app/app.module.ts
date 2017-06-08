@@ -1,11 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
-import {MdToolbarModule, MdButtonModule, MdIconModule,
+import {MdToolbarModule, MdButtonModule, MdIconModule, MdAutocompleteModule,
   MdSidenavModule, MdSelectModule, MdProgressSpinnerModule} from '@angular/material';
 import {MdCardModule, MdGridListModule, MdInputModule} from '@angular/material';
 
@@ -29,6 +29,7 @@ import { FilmSearchComponent } from './film-search/film-search.component';
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     BrowserAnimationsModule,
     MdToolbarModule,
@@ -39,7 +40,8 @@ import { FilmSearchComponent } from './film-search/film-search.component';
     MdIconModule,
     MdSidenavModule,
     MdSelectModule,
-    MdProgressSpinnerModule
+    MdProgressSpinnerModule,
+    MdAutocompleteModule
   ],
   providers: [FilmService,SearchTextService],
   bootstrap: [AppComponent]
