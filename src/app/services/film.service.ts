@@ -39,7 +39,7 @@ export class FilmService {
   }
 
   prepareRequest(searchText: string, page: number = 1) {
-    this.requestParams.set(this.paramSearchString, searchText);
+    this.requestParams.set(this.paramSearchString, searchText.trim());
     this.requestParams.set(this.paramPage, page.toString());
   }
 
