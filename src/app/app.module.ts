@@ -17,6 +17,7 @@ import { FilmCardComponent } from './film-card/film-card.component';
 import { FilmService } from './services/film.service';
 import { SearchTextService } from './services/search-text.service';
 import { FilmSearchComponent } from './film-search/film-search.component';
+import { ShowIfScrollDirective } from './directives/show-if-scroll.directive';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FilmSearchComponent } from './film-search/film-search.component';
     HeaderComponent,
     FilmListComponent,
     FilmCardComponent,
-    FilmSearchComponent
+    FilmSearchComponent,
+    ShowIfScrollDirective
   ],
   imports: [
     BrowserModule,
