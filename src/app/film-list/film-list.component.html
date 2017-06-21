@@ -15,4 +15,17 @@
   <film-card *ngFor="let film of films" [film]="film" [view]="selectedViewValue"></film-card>
 </div>
 
-<button (click)="addNextFilmsPage()" md-raised-button>Add more</button>
+<div [hidden]="isAddingNewFilms">
+  <button (click)="addNextFilmsPage()" 
+    md-raised-button [disabled]="isAddFilmsButtonDisabled()">Add more</button>
+</div>
+
+<div [hidden]="!isShownAddMoreProgressSpinner()">
+  <md-spinner></md-spinner>
+</div>
+
+<div class="go-up-btn">
+  <a showIfScroll [scrollLimit]="50" md-mini-fab><md-icon>arrow_upward</md-icon></a>
+</div>
+
+ <!--href="#top"-->

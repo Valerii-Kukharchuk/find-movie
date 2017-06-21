@@ -7,3 +7,11 @@ film-card {
 md-select {
   width: 200px;
 }
+
+.view-select {
+  margin: 40px auto;
+}
+
+.go-up-btn {
+  margin: 40px auto;
+}

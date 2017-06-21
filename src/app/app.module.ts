@@ -1,12 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
-import {MdToolbarModule, MdButtonModule, MdIconModule,
-  MdSidenavModule, MdSelectModule} from '@angular/material';
+import {MdToolbarModule, MdButtonModule, MdIconModule, MdAutocompleteModule,
+  MdSidenavModule, MdSelectModule, MdProgressSpinnerModule} from '@angular/material';
 import {MdCardModule, MdGridListModule, MdInputModule} from '@angular/material';
 
 import { AppComponent } from './app.component';
@@ -17,6 +17,7 @@ import { FilmCardComponent } from './film-card/film-card.component';
 import { FilmService } from './services/film.service';
 import { SearchTextService } from './services/search-text.service';
 import { FilmSearchComponent } from './film-search/film-search.component';
+import { ShowIfScrollDirective } from './directives/show-if-scroll.directive';
 
 @NgModule({
   declarations: [
@@ -24,11 +25,13 @@ import { FilmSearchComponent } from './film-search/film-search.component';
     HeaderComponent,
     FilmListComponent,
     FilmCardComponent,
-    FilmSearchComponent
+    FilmSearchComponent,
+    ShowIfScrollDirective
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
     BrowserAnimationsModule,
     MdToolbarModule,
@@ -38,7 +41,9 @@ import { FilmSearchComponent } from './film-search/film-search.component';
     MdButtonModule,
     MdIconModule,
     MdSidenavModule,
-    MdSelectModule
+    MdSelectModule,
+    MdProgressSpinnerModule,
+    MdAutocompleteModule
   ],
   providers: [FilmService,SearchTextService],
   bootstrap: [AppComponent]
